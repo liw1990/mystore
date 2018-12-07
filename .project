@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>mycs</name>
+	<name>mystor</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1543822605808</id>
+			<id>1543022786338</id>
 			<name></name>
 			<type>26</type>
 			<matcher>

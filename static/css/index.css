@@ -1,0 +1,88 @@
+* { margin: 0; padding: 0; }
+
+html, body { text-align: center; font-family: "microsoft yahei"; width: 100%; background: #333; }
+
+body { text-align: left; }
+
+img { border: none; }
+
+li { list-style: none; }
+
+input { outline: none; }
+
+a { text-decoration: none; }
+
+#app { width: 6.4rem; margin: 0 auto; height: auto; position: relative; background: #fff; }
+#app img { height: 100%; width: 100%; display: block; }
+#app header { height: 0.9rem; padding-top: 0.3rem; padding-bottom: 0.7rem; display: flex; justify-content: space-around; width: 100%; position: relative; background: url(../img/hd_bg.jpg) no-repeat; background-size: cover; position: relative; }
+#app header .header_bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #333; opacity: 0.6; z-index: 1; }
+#app header .logo { height: 0.9rem; margin: 0 0.35rem; width: 0.9rem; background: #333; border-radius: 0.08rem; z-index: 9; }
+#app header ul { height: auto; flex: 1; z-index: 9; }
+#app header ul li { height: auto; width: 100%; }
+#app header ul li i { float: left; height: 0.25rem; width: auto; padding: 0.05rem; padding-left: 0; }
+#app header ul li i img { width: auto; }
+#app header ul li span { padding: 0 0.03rem; }
+#app header ul li:nth-child(1) { font-size: 0.22rem; color: #fff; font-weight: 600; line-height: 0.35rem; }
+#app header ul li:nth-child(2) { font-size: 0.18rem; color: #eee; line-height: 0.3rem; }
+#app header ul li:nth-child(3) { font-size: 0.14rem; color: #eee; line-height: 0.3rem; }
+#app header ul li:nth-child(3) i { height: 0.18rem; }
+#app header .notice { position: absolute; bottom: 0; left: 0; height: 0.4rem; width: 100%; line-height: 0.4rem; color: #eee; z-index: 9; }
+#app header .notice .notice_bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #333; opacity: 0.8; z-index: -1; }
+#app header .notice .notice_img { position: absolute; left: 0.14rem; top: 0.1rem; height: 0.2rem; width: auto; }
+#app header .notice .notice_img img { width: auto; }
+#app header .notice dl { display: flex; height: auto; width: 100%; flex-wrap: wrap; position: relative; }
+#app header .notice dl dd { display: block; padding-left: 10%; height: 0.4rem; width: 90%; font-size: 0.14rem; position: relative; }
+#app header .notice dl dd span { float: right; height: 0.4rem; width: auto; padding: 0 0.05rem; line-height: 0.4rem; cursor: pointer; }
+#app header .gg_tc { position: fixed; left: 0; top: 0; height: 10rem; width: 100%; background: #333; z-index: 9; }
+#app .tab { width: 100%; display: flex; height: 0.7rem; text-align: center; background: #fff; }
+#app .tab li { flex: 1; height: 0.7rem; }
+#app .tab li a { display: block; width: 100%; height: 100%; line-height: 0.7rem; font-size: 0.25rem; text-align: center; color: #111; border-bottom: 0.01rem solid #eee; }
+#app .tab li a.router-link-active { border-bottom: 0.01rem solid #666; color: #f00; }
+#app .tab li a.router-link-exact-activ { color: #42B983; }
+#app .goods { width: 100%; height: auto; display: flex; position: relative; overflow: hidden; }
+#app .goods .goods_bg { position: fixed; left: 0; top: 0; width: 100%; height: 1200px; background: #000; opacity: 0.6; z-index: 99; }
+#app .goods ul { width: 30%; height: auto; }
+#app .goods ul li { height: 0.7rem; width: 100%; line-height: 0.7rem; font-size: 0.2rem; }
+#app .goods ul li p { width: 80%; margin: 0 auto; height: auto; line-break: 0.25rem; vertical-align: middle; border-bottom: 0.01rem solid #eee; }
+#app .goods .goods_list { flex: 1; height: auto; }
+#app .goods .goods_list dl { width: 100%; height: auto; background: #fff; }
+#app .goods .goods_list dl dt { height: 0.4rem; line-height: 0.4rem; font-size: 0.16rem; background: #eee; clear: both; text-indent: 0.16rem; }
+#app .goods .goods_list dl dd { font-size: 0.16rem; height: auto; width: 90%; padding: 0.16rem 0; margin: 0 auto; clear: both; display: flex; justify-content: space-around; border-bottom: 0.01rem solid #eee; }
+#app .goods .goods_list dl dd .cp_img { height: 1rem; width: 1rem; background: #999; border-radius: 0.08rem; }
+#app .goods .goods_list dl dd .cp_img img { width: 100%; height: 100%; }
+#app .goods .goods_list dl dd .cp_ms { flex: 1; padding-left: 0.16rem; position: relative; }
+#app .goods .goods_list dl dd .cp_ms p { height: 0.3rem; line-height: 0.3rem; font-size: 0.2rem; color: #111; }
+#app .goods .goods_list dl dd .cp_ms span { display: block; height: 0.25rem; line-height: 0.25rem; font-size: 0.14rem; color: #999; }
+#app .goods .goods_list dl dd .cp_ms span i { font-style: normal; }
+#app .goods .goods_list dl dd .cp_ms span i:nth-child(1) { color: #f00; font-size: 0.22rem; font-weight: 600; }
+#app .goods .goods_list dl dd .cp_ms span i:nth-child(2) { text-decoration: line-through; }
+#app .goods .goods_list dl dd .cp_ms .jiajian { position: absolute; right: 0.1rem; bottom: -0.05rem; width: 35%; height: 0.3rem; line-height: 0.3rem; text-align: center; }
+#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_ { display: inline-block; width: 70%; }
+#app .goods .goods_list dl dd .cp_ms .jiajian label { display: inline-block; height: 0.2rem; width: 0.2rem; border-radius: 100%; border: 0.01rem solid #f47433; line-height: 0.16rem; font-size: 0.2rem; cursor: pointer; }
+#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_jian { background: none; color: #f47433; }
+#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_jia { background: #f47433; color: #fff; }
+#app .goods .goods_list dl dd .cp_ms .jiajian input { width: 50%; height: 0.28rem; line-height: 0.28rem; font-size: 0.18rem; border: 0.01rem solid #eee; margin: 0 0.03rem; color: #666; text-align: center; }
+#app .goods .goods_totle { position: fixed; left: 50%; bottom: 0; width: 0.02rem; height: 0.02rem; z-index: 999; }
+#app .goods .goods_totle dl { position: absolute; left: -3.2rem; bottom: 0; padding-bottom: 0.9rem; width: 6.4rem; height: auto; z-index: 999; background: #fff; }
+#app .goods .goods_totle dl dd { height: 0.4rem; width: 90%; margin: 0 auto; line-height: 0.4rem; display: flex; justify-content: space-between; padding-bottom: 0.16rem; }
+#app .goods .goods_totle dl dd p:nth-child(1) { width: 40%; font-size: 0.2rem; text-indent: 0.16rem; }
+#app .goods .goods_totle dl dd p:nth-child(2) { width: 30%; font-size: 0.26rem; color: #f00; text-align: center; }
+#app .goods .goods_totle dl dd p:nth-child(3) { width: 30%; font-size: 0.2rem; padding: 0.05rem 0; display: inline-flex; justify-content: center; }
+#app .goods .goods_totle dl dd p:nth-child(3) label { display: block; height: 0.3rem; width: 0.3rem; font-size: 0.26rem; background: #f47433; color: #fff; border-radius: 100%; line-height: 0.26rem; text-align: center; cursor: pointer; }
+#app .goods .goods_totle dl dd p:nth-child(3) label:nth-child(1) { background: none; border: 0.01rem solid #f47433; color: #f47433; }
+#app .goods .goods_totle dl dd p:nth-child(3) span { width: 30%; height: 0.28rem; line-height: 0.28rem; font-size: 0.18rem; margin: 0 0.03rem; color: #666; text-align: center; }
+#app .goods .goods_totle dl dt { height: 0.3rem; width: 100%; text-align: center; background: #f47433; color: #fff; line-height: 0.3rem; font-size: 0.16rem; }
+#app .goods .goods_totle .goods_totle_ { position: absolute; left: -2.75rem; bottom: 0; width: 5.5rem; height: 0.6rem; border-radius: 0.3rem; display: flex; justify-content: space-between; z-index: 999; background: #a1a1a1; align-items: center; }
+#app .goods .goods_totle .goods_totle_ .goods_totle_bg { position: absolute; left: 0; bottom: 0; width: 100%; height: 150%; z-index: 999; }
+#app .goods .goods_totle .goods_totle_ p { cursor: pointer; }
+#app .goods .goods_totle .goods_totle_ p:nth-child(1) { width: 0.6rem; height: 0.6rem; cursor: pointer; margin-left: 0.3rem; position: relative; }
+#app .goods .goods_totle .goods_totle_ p:nth-child(1) img { position: absolute; left: 0; top: -50%; width: 150%; height: 150%; z-index: 8; }
+#app .goods .goods_totle .goods_totle_ p:nth-child(2) { height: 0.6rem; line-height: 0.6rem; flex: 1; text-align: center; font-size: 0.2rem; background: #a1a1a1; }
+#app .goods .goods_totle .goods_totle_ p:nth-child(3) { height: 0.6rem; line-height: 0.6rem; width: 30%; text-align: center; font-size: 0.26rem; border-top-right-radius: 0.3rem; border-bottom-right-radius: 0.3rem; }
+#app .goods .goods_totle .goods_totle_ .goods_total_ys1 { background: #f47433; color: #fff; }
+#app .goods .goods_totle .goods_totle_ .goods_total_ys2 { background: #a1a1a1; color: #333; }
+#app footer { height: 1rem; width: 100%; text-align: center; line-height: 1rem; font-size: 0.16rem; }
+
+@media only screen and (max-width: 640px) { #app { width: 100%; } }
+
+/*# sourceMappingURL=index.css.map */

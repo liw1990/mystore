@@ -1,0 +1,233 @@
+@function rem($px, $base-font-size: 100px) {
+    @return $px / $base-font-size * 1rem;
+}
+*{ margin: 0 ; padding: 0;}
+html,body{ text-align: center; font-family: "microsoft yahei"; width: 100%; background: #333;}
+body{ text-align: left;}
+img{ border: none;}
+li{ list-style: none;}
+input{ outline: none;}
+a{ text-decoration: none;}
+
+
+$_1:rem(1px);$_2:rem(2px);$_3:rem(3px);$_5:rem(5px);$_8:rem(8px);$_10:rem(10px);$_14:rem(14px);$_16:rem(16px);$_18:rem(18px);$_20:rem(20px);$_22:rem(22px);$_25:rem(25px);
+$_26:rem(26px);$_28:rem(28px);$_30:rem(30px);$_35:rem(35px);$_40:rem(40px);$_45:rem(45px);$_50:rem(50px);$_55:rem(55px);$_60:rem(60px);$_70:rem(70px);$_80:rem(80px);$_90:rem(90px);
+$_100:rem(100px);
+
+$c_0:#000;$c_1:#111;$c_2:#222;$c_3:#333;$c_6:#666;$c_9:#999;$c_c:#ccc;$c_e:#eee;$c_f:#fff;$c_f00:#f00;
+
+
+#app{
+    width: rem(640px); margin: 0 auto; height: auto; position: relative; background: $c_f;
+    img{
+        height: 100%; width: 100%; display: block;
+    }
+    header{
+        height: $_90; padding-top: $_30; padding-bottom: $_70; display: flex; justify-content: space-around; width: 100%; position: relative; background: url(../img/hd_bg.jpg) no-repeat; background-size: cover; position: relative;
+        .header_bg{
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: $c_3; opacity: 0.6; z-index: 1;
+        }
+        .logo{
+            height: $_90; margin: 0 $_35; width: $_90; background:$c_3; border-radius: $_8; z-index: 9;
+        }
+        ul{
+            height: auto; flex: 1; z-index: 9;
+            li{
+                height: auto; width: 100%;
+                i{
+                    float: left; height: $_25; width: auto; padding: $_5; padding-left: 0;
+                    img{
+                        width: auto;
+                    }
+                }
+                span{
+                    padding: 0 $_3;
+                }
+            }
+            li:nth-child(1){
+                font-size: $_22; color: $c_f; font-weight: 600; line-height: $_35;
+            }
+            li:nth-child(2){
+                font-size: $_18; color: $c_e;  line-height: $_30;
+            }
+            li:nth-child(3){
+                i{
+                   height: $_18; 
+                }
+                font-size: $_14; color: $c_e;  line-height: $_30;
+            }
+        }
+        .notice{ 
+            position: absolute; bottom: 0; left: 0; height:$_40; width: 100%; line-height: $_40; color: $c_e; z-index: 9; 
+            .notice_bg{
+                position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: $c_3; opacity: 0.8; z-index: -1;
+            }
+            .notice_img{
+                position: absolute; left: $_14; top: $_10; height: $_20; width: auto;
+                img{
+                    width: auto;
+                }
+            }
+            dl{
+                display: flex; height: auto; width: 100%; flex-wrap: wrap; position: relative;
+                dd{
+                    display:block; padding-left: 10%; height:$_40; width: 90%; font-size: $_14; position: relative;
+                    span{
+                        float: right; height: $_40; width: auto; padding: 0 $_5; line-height: $_40; cursor: pointer;
+                    }
+                    
+                }
+            }
+            
+        }
+        .gg_tc{
+            position:fixed; left: 0; top: 0; height:rem(1000px); width: 100%; background:#333; z-index: 9;
+        }
+        
+    }
+    .tab{ 
+        width: 100%; display: flex; height: $_70; text-align: center; background: $c_f;
+        li{ 
+            flex: 1; height: $_70;
+            a{ 
+                display: block; width: 100%; height: 100%; line-height: $_70; font-size: $_25; text-align: center; color: #111; border-bottom: $_1 solid #eee;
+            }
+            a.router-link-active{ border-bottom: $_1 solid $c_6; color: #f00;}
+            a.router-link-exact-activ{ color: #42B983;}
+        }
+    }
+    .goods{
+        width: 100%; height: auto; display: flex; position: relative; overflow: hidden;
+        .goods_bg{
+           position: fixed; left: 0; top: 0; width: 100%; height: 1200px; background: $c_0; opacity: 0.6; z-index: 99;
+        }
+        ul{
+            width: 30%; height: auto;
+            li{
+                height: $_70; width: 100%; line-height: $_70; font-size: $_20;
+                p{
+                    width: 80%; margin: 0 auto; height: auto; line-break: $_25; vertical-align: middle; border-bottom: $_1 solid $c_e;
+                }
+            }
+        }
+        .goods_list{
+            flex: 1; height: auto;
+            dl{ 
+                width: 100%; height: auto; background: $c_f;
+                dt{
+                    height: $_40; line-height: $_40; font-size: $_16; background: $c_e; clear: both; text-indent: $_16;
+                    
+                }
+                dd{
+                    font-size: $_16; height: auto; width: 90%; padding: $_16 0; margin: 0 auto; clear: both; display: flex; justify-content:space-around; border-bottom: $_1 solid $c_e;
+                    .cp_img{
+                        height: $_100; width:$_100; background: $c_9; border-radius: $_8;
+                        img{
+                            width: 100%; height: 100%;
+                        }
+                    }
+                    .cp_ms{
+                        flex: 1; padding-left: $_16; position: relative;
+                        p{
+                            height: $_30; line-height: $_30; font-size: $_20; color: $c_1;
+                        }
+                        span{
+                            display: block; height: $_25; line-height: $_25; font-size: $_14; color: $c_9;
+                            i{
+                                font-style: normal; 
+                            }
+                            i:nth-child(1){ color: $c_f00; font-size: $_22; font-weight: 600;}
+                            i:nth-child(2){ text-decoration: line-through;}
+                        }
+                        .jiajian{
+                            position: absolute; right: $_10; bottom: -$_5; width: 35%; height: $_30; line-height: $_30; text-align: center;
+                            .jiajian_{
+                               display: inline-block; width: 70%;
+                            }
+                            label{
+                               display: inline-block; height: $_20; width: $_20; border-radius: 100%; border:$_1 solid #f47433; line-height: $_16; font-size: $_20; cursor: pointer;
+                            }
+                            .jiajian_jian{
+                               background:none; color: #f47433;
+                            }
+                            .jiajian_jia{
+                               background:#f47433; color: #fff;
+                            }
+                            input{
+                                width: 50%; height: $_28; line-height: $_28; font-size: $_18; border:$_1 solid #eee; margin: 0 $_3; color: #666; text-align: center;
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+        .goods_totle{
+            position: fixed; left: 50%; bottom: 0; width: $_2; height: $_2; z-index: 999;
+            dl{
+                position: absolute; left: rem(-320px); bottom: 0; padding-bottom: $_90; width: rem(640px); height: auto; z-index: 999; background:$c_f;
+                dd{
+                    height: $_40; width: 90%; margin: 0 auto; line-height: $_40; display: flex; justify-content: space-between; padding-bottom: $_16; 
+                   p:nth-child(1){
+                      width: 40%;  font-size: $_20; text-indent: $_16;
+                   }
+                   p:nth-child(2){
+                      width: 30%; font-size: $_26; color: #f00; text-align: center;
+                   }
+                   p:nth-child(3){
+                      width: 30%; font-size: $_20; padding: $_5 0; display: inline-flex; justify-content: center;
+                       label{
+                          display: block; height: $_30; width: $_30; font-size: $_26; background: #f47433; color: #fff; border-radius: 100%; line-height: $_26; text-align: center; cursor: pointer;
+                       }
+                       label:nth-child(1){
+                           background:none; border:$_1 solid #f47433; color: #f47433;
+                       }
+                       span{
+                          width: 30%; height: $_28; line-height: $_28; font-size: $_18; margin: 0 $_3; color: #666; text-align: center;
+                       }
+                   }  
+                }
+                dt{
+                    height: $_30; width: 100%; text-align: center; background: #f47433; color: #fff; line-height: $_30; font-size: $_16;
+                }
+            }
+            .goods_totle_{
+                position: absolute; left: rem(-275px); bottom: 0; width: rem(550px);  height: $_60; border-radius: $_30; display: flex; justify-content: space-between; z-index: 999;
+                background:#a1a1a1; align-items: center;
+                .goods_totle_bg{
+                    position: absolute; left: 0; bottom: 0; width: 100%; height: 150%; z-index: 999;
+                }
+                p{
+                    cursor: pointer;
+                }
+                p:nth-child(1){
+                    width: $_60; height: $_60; cursor: pointer; margin-left: $_30; position: relative;
+                    img{
+                       position: absolute; left: 0; top: -50%; width: 150%; height: 150%; z-index: 8;
+                    }
+                }
+                p:nth-child(2){
+                   height: $_60; line-height: $_60; flex: 1; text-align: center; font-size: $_20; background:#a1a1a1; 
+                }
+                p:nth-child(3){
+                   height: $_60; line-height: $_60; width: 30%; text-align: center; font-size: $_26; border-top-right-radius: $_30; border-bottom-right-radius: $_30;
+                }
+                .goods_total_ys1{
+                    background:#f47433; color: $c_f;
+                }
+                .goods_total_ys2{
+                    background:#a1a1a1; color: $c_3;
+                }
+            } 
+        }
+        
+    }
+    footer{
+        height: $_100; width: 100%; text-align: center; line-height: $_100; font-size: $_16;
+    }
+}
+@media only screen and (max-width: 640px) {
+    #app{
+        width: 100%;
+    }
+    
+}
