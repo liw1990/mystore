@@ -1,6 +1,7 @@
+@charset "UTF-8";
 * { margin: 0; padding: 0; }
 
-html, body { text-align: center; font-family: "microsoft yahei"; width: 100%; background: #333; }
+html, body { text-align: center; font-family: "microsoft yahei"; width: 100%; height: 100%; background: #333; overflow: hidden; }
 
 body { text-align: left; }
 
@@ -10,9 +11,11 @@ li { list-style: none; }
 
 input { outline: none; }
 
+textarea { outline: none; }
+
 a { text-decoration: none; }
 
-#app { width: 6.4rem; margin: 0 auto; height: auto; position: relative; background: #fff; }
+#app { width: 6.4rem; margin: 0 auto; height: 100%; position: relative; background: #fff; overflow: hidden; }
 #app img { height: 100%; width: 100%; display: block; }
 #app header { height: 0.9rem; padding-top: 0.3rem; padding-bottom: 0.7rem; display: flex; justify-content: space-around; width: 100%; position: relative; background: url(../img/hd_bg.jpg) no-repeat; background-size: cover; position: relative; }
 #app header .header_bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #333; opacity: 0.6; z-index: 1; }
@@ -33,18 +36,45 @@ a { text-decoration: none; }
 #app header .notice dl { display: flex; height: auto; width: 100%; flex-wrap: wrap; position: relative; }
 #app header .notice dl dd { display: block; padding-left: 10%; height: 0.4rem; width: 90%; font-size: 0.14rem; position: relative; }
 #app header .notice dl dd span { float: right; height: 0.4rem; width: auto; padding: 0 0.05rem; line-height: 0.4rem; cursor: pointer; }
-#app header .gg_tc { position: fixed; left: 0; top: 0; height: 10rem; width: 100%; background: #333; z-index: 9; }
-#app .tab { width: 100%; display: flex; height: 0.7rem; text-align: center; background: #fff; }
+#app header .gg_tc { position: fixed; left: 50%; top: 0; height: 0.01rem; width: 0.02rem; z-index: 999; }
+#app header .gg_tc .gg_tc_ { position: absolute; left: -3.2rem; top: 0; height: auto; width: 6.4rem; overflow: hidden; }
+#app header .gg_tc .gg_tc_ .gg_tc_bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #000; opacity: 0.9; z-index: -1; }
+#app header .gg_tc .gg_tc_ .gg_tc_hide { width: 100%; padding-top: 0.6rem; }
+#app header .gg_tc .gg_tc_ .gg_tc_hide p { width: 0.6rem; height: 0.6rem; border: 0.01rem solid #eee; border-radius: 0.3rem; color: #eee; font-size: 0.4rem; text-align: center; margin: 0 auto; line-height: 0.55rem; cursor: pointer; }
+#app header .gg_tc .gg_tc_ .gg_tc_nr { height: auto; width: 80%; margin: 0 auto; padding: 0.2rem 0; }
+#app header .gg_tc .gg_tc_ .gg_tc_nr p { height: auto; line-height: 0.5rem; width: 100%; font-size: 0.2rem; color: #eee; text-align: center; }
+#app header .gg_tc .gg_tc_ .gg_tc_nr span { display: block; height: 0.3rem; width: 100%; line-height: 0.3rem; font-size: 0.16rem; color: #ccc; text-align: center; }
+#app header .gg_tc .gg_tc_ .gg_tc_nr div { height: 3rem; width: 100%; line-height: 0.26rem; font-size: 0.16rem; color: #eee; overflow-y: auto; }
+#app .scroll_by::-webkit-scrollbar { width: 4px; height: 4px; }
+#app .scroll_by::-webkit-scrollbar-track { background: #f6f6f6; border-radius: 2px; }
+#app .scroll_by::-webkit-scrollbar-thumb { background: #aaa; border-radius: 2px; }
+#app .scroll_by::-webkit-scrollbar-thumb:hover { background: #747474; }
+#app .scroll_by::-webkit-scrollbar-corner { background: #f6f6f6; }
+#app .tab { width: 100%; display: flex; height: 0.71rem; text-align: center; background: #fff; }
 #app .tab li { flex: 1; height: 0.7rem; }
 #app .tab li a { display: block; width: 100%; height: 100%; line-height: 0.7rem; font-size: 0.25rem; text-align: center; color: #111; border-bottom: 0.01rem solid #eee; }
-#app .tab li a.router-link-active { border-bottom: 0.01rem solid #666; color: #f00; }
+#app .tab li a.router-link-active { border-bottom: 0.01rem solid #f00; color: #f00; }
 #app .tab li a.router-link-exact-activ { color: #42B983; }
-#app .goods { width: 100%; height: auto; display: flex; position: relative; overflow: hidden; }
+#app .content { width: 100%; overflow: hidden; }
+#app .goods { width: 100%; height: 100%; display: flex; position: relative; overflow: hidden; }
 #app .goods .goods_bg { position: fixed; left: 0; top: 0; width: 100%; height: 1200px; background: #000; opacity: 0.6; z-index: 99; }
-#app .goods ul { width: 30%; height: auto; }
+#app .goods .goods_cp_show { position: fixed; left: 50%; top: 0; width: 0.01rem; height: 100%; z-index: 990; }
+#app .goods .goods_cp_show .goods_cp_show_ { position: absolute; left: -3.2rem; top: 0; width: 6.4rem; height: 100%; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #000; opacity: 0.9; z-index: -1; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr { height: 100%; width: 100%; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_hide { height: 5%; width: 100%; background: #fff; border-bottom: 0.01rem solid #eee; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_hide p { width: 0.3rem; height: 0.3rem; text-align: center; border-radius: 100%; color: #666; line-height: 0.26rem; font-size: 0.3rem; cursor: pointer; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail { height: 93%; padding-top: 2%; width: 100%; overflow: auto; background: #fff; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail .goods_cp_detail_img { width: 96%; height: 3rem; margin: 0 auto; background: #333; overflow: hidden; border-radius: 0.16rem; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail .goods_cp_detail_img img { width: 100%; height: auto; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail .goods_cp_detail_bt { height: 0.6rem; width: 92%; margin: 0 auto; line-height: 0.6rem; font-size: 0.26rem; border: none; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail .goods_cp_detail_num { height: 0.3rem; line-height: 0.3rem; width: 92%; margin: 0 auto; font-size: 0.16rem; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail .goods_cp_detail_num span { display: inline-block; width: auto; padding: 0 0.08rem; }
+#app .goods .goods_cp_show .goods_cp_show_ .goods_cp_show_nr .goods_cp_detail .goods_cp_detail_price { height: 0.4rem; width: 92%; margin: 0 auto; line-height: 0.4rem; font-size: 0.22rem; border: none; color: #f00; font-weight: 600; }
+#app .goods ul { width: 30%; height: 100%; overflow: auto; padding-bottom: 3rem; }
 #app .goods ul li { height: 0.7rem; width: 100%; line-height: 0.7rem; font-size: 0.2rem; }
 #app .goods ul li p { width: 80%; margin: 0 auto; height: auto; line-break: 0.25rem; vertical-align: middle; border-bottom: 0.01rem solid #eee; }
-#app .goods .goods_list { flex: 1; height: auto; }
+#app .goods .goods_list { flex: 1; height: 100%; overflow: auto; }
 #app .goods .goods_list dl { width: 100%; height: auto; background: #fff; }
 #app .goods .goods_list dl dt { height: 0.4rem; line-height: 0.4rem; font-size: 0.16rem; background: #eee; clear: both; text-indent: 0.16rem; }
 #app .goods .goods_list dl dd { font-size: 0.16rem; height: auto; width: 90%; padding: 0.16rem 0; margin: 0 auto; clear: both; display: flex; justify-content: space-around; border-bottom: 0.01rem solid #eee; }
@@ -56,31 +86,81 @@ a { text-decoration: none; }
 #app .goods .goods_list dl dd .cp_ms span i { font-style: normal; }
 #app .goods .goods_list dl dd .cp_ms span i:nth-child(1) { color: #f00; font-size: 0.22rem; font-weight: 600; }
 #app .goods .goods_list dl dd .cp_ms span i:nth-child(2) { text-decoration: line-through; }
-#app .goods .goods_list dl dd .cp_ms .jiajian { position: absolute; right: 0.1rem; bottom: -0.05rem; width: 35%; height: 0.3rem; line-height: 0.3rem; text-align: center; }
-#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_ { display: inline-block; width: 70%; }
-#app .goods .goods_list dl dd .cp_ms .jiajian label { display: inline-block; height: 0.2rem; width: 0.2rem; border-radius: 100%; border: 0.01rem solid #f47433; line-height: 0.16rem; font-size: 0.2rem; cursor: pointer; }
+#app .goods .goods_list dl dd .cp_ms .jiajian { position: absolute; right: 0.1rem; bottom: -0.05rem; width: auto; height: 0.3rem; line-height: 0.3rem; text-align: center; display: flex; justify-content: space-between; }
+#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_ { display: inline-flex; width: 0.6rem; justify-content: space-between; }
+#app .goods .goods_list dl dd .cp_ms .jiajian label:nth-child(1), #app .goods .goods_list dl dd .cp_ms .jiajian label:nth-child(2) { display: inline-block; height: 0.2rem; width: 0.2rem; border-radius: 100%; border: 0.01rem solid #f47433; line-height: 0.16rem; font-size: 0.2rem; cursor: pointer; }
 #app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_jian { background: none; color: #f47433; }
 #app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_jia { background: #f47433; color: #fff; }
-#app .goods .goods_list dl dd .cp_ms .jiajian input { width: 50%; height: 0.28rem; line-height: 0.28rem; font-size: 0.18rem; border: 0.01rem solid #eee; margin: 0 0.03rem; color: #666; text-align: center; }
-#app .goods .goods_totle { position: fixed; left: 50%; bottom: 0; width: 0.02rem; height: 0.02rem; z-index: 999; }
-#app .goods .goods_totle dl { position: absolute; left: -3.2rem; bottom: 0; padding-bottom: 0.9rem; width: 6.4rem; height: auto; z-index: 999; background: #fff; }
-#app .goods .goods_totle dl dd { height: 0.4rem; width: 90%; margin: 0 auto; line-height: 0.4rem; display: flex; justify-content: space-between; padding-bottom: 0.16rem; }
-#app .goods .goods_totle dl dd p:nth-child(1) { width: 40%; font-size: 0.2rem; text-indent: 0.16rem; }
-#app .goods .goods_totle dl dd p:nth-child(2) { width: 30%; font-size: 0.26rem; color: #f00; text-align: center; }
-#app .goods .goods_totle dl dd p:nth-child(3) { width: 30%; font-size: 0.2rem; padding: 0.05rem 0; display: inline-flex; justify-content: center; }
-#app .goods .goods_totle dl dd p:nth-child(3) label { display: block; height: 0.3rem; width: 0.3rem; font-size: 0.26rem; background: #f47433; color: #fff; border-radius: 100%; line-height: 0.26rem; text-align: center; cursor: pointer; }
-#app .goods .goods_totle dl dd p:nth-child(3) label:nth-child(1) { background: none; border: 0.01rem solid #f47433; color: #f47433; }
-#app .goods .goods_totle dl dd p:nth-child(3) span { width: 30%; height: 0.28rem; line-height: 0.28rem; font-size: 0.18rem; margin: 0 0.03rem; color: #666; text-align: center; }
-#app .goods .goods_totle dl dt { height: 0.3rem; width: 100%; text-align: center; background: #f47433; color: #fff; line-height: 0.3rem; font-size: 0.16rem; }
-#app .goods .goods_totle .goods_totle_ { position: absolute; left: -2.75rem; bottom: 0; width: 5.5rem; height: 0.6rem; border-radius: 0.3rem; display: flex; justify-content: space-between; z-index: 999; background: #a1a1a1; align-items: center; }
-#app .goods .goods_totle .goods_totle_ .goods_totle_bg { position: absolute; left: 0; bottom: 0; width: 100%; height: 150%; z-index: 999; }
-#app .goods .goods_totle .goods_totle_ p { cursor: pointer; }
-#app .goods .goods_totle .goods_totle_ p:nth-child(1) { width: 0.6rem; height: 0.6rem; cursor: pointer; margin-left: 0.3rem; position: relative; }
-#app .goods .goods_totle .goods_totle_ p:nth-child(1) img { position: absolute; left: 0; top: -50%; width: 150%; height: 150%; z-index: 8; }
-#app .goods .goods_totle .goods_totle_ p:nth-child(2) { height: 0.6rem; line-height: 0.6rem; flex: 1; text-align: center; font-size: 0.2rem; background: #a1a1a1; }
-#app .goods .goods_totle .goods_totle_ p:nth-child(3) { height: 0.6rem; line-height: 0.6rem; width: 30%; text-align: center; font-size: 0.26rem; border-top-right-radius: 0.3rem; border-bottom-right-radius: 0.3rem; }
-#app .goods .goods_totle .goods_totle_ .goods_total_ys1 { background: #f47433; color: #fff; }
-#app .goods .goods_totle .goods_totle_ .goods_total_ys2 { background: #a1a1a1; color: #333; }
+#app .goods .goods_list dl dd .cp_ms .jiajian p { display: inline-block; width: 0.3rem; height: 0.3rem; line-height: 0.22rem; font-size: 0.16rem; margin: 0 0.03rem; color: #666; text-align: center; }
+#app .goods .goods_total { position: fixed; left: 50%; bottom: 0; width: 0.02rem; height: 0.02rem; z-index: 991; }
+#app .goods .goods_total dl { position: absolute; left: -3.2rem; bottom: 0; padding-bottom: 0.3rem; width: 6.4rem; height: auto; z-index: 999; background: #fff; border-top-left-radius: 0.2rem; border-top-right-radius: 0.2rem; overflow: hidden; }
+#app .goods .goods_total dl div { padding-bottom: 0.6rem; }
+#app .goods .goods_total dl dd { height: 0.4rem; width: 90%; margin: 0 auto; line-height: 0.4rem; display: flex; justify-content: space-between; border-bottom: 0.01rem solid #eee; }
+#app .goods .goods_total dl dd p:nth-child(1) { width: 40%; font-size: 0.2rem; text-indent: 0.16rem; }
+#app .goods .goods_total dl dd p:nth-child(2) { width: 30%; font-size: 0.26rem; color: #f00; text-align: center; }
+#app .goods .goods_total dl dd p:nth-child(3) { width: 30%; font-size: 0.2rem; padding: 0.05rem 0; display: inline-flex; justify-content: center; }
+#app .goods .goods_total dl dd p:nth-child(3) label { display: block; height: 0.28rem; width: 0.28rem; font-size: 0.26rem; background: #f47433; color: #fff; border-radius: 100%; line-height: 0.25rem; text-align: center; cursor: pointer; border: 0.01rem solid #f47433; }
+#app .goods .goods_total dl dd p:nth-child(3) label:nth-child(1) { background: none; color: #f47433; }
+#app .goods .goods_total dl dd p:nth-child(3) span { width: 30%; height: 0.28rem; line-height: 0.28rem; font-size: 0.18rem; margin: 0 0.03rem; color: #666; text-align: center; }
+#app .goods .goods_total dl dt { height: 0.3rem; width: 100%; text-align: center; background: #f47433; color: #fff; line-height: 0.3rem; font-size: 0.16rem; border-top-left-radius: 0.16rem; border-top-right-radius: 0.16rem; border: none; opacity: 0.8; }
+#app .goods .goods_total dl dt span { padding: 0 0.05rem; }
+#app .goods .goods_total dl .goods_total_dl_dt_ys1 { width: 5.5rem; margin: 0 auto; height: 0.6rem; }
+#app .goods .goods_total dl .goods_total_dl_dt_ys2 { width: 100%; }
+#app .goods .goods_total .goods_total_ { position: absolute; left: -2.75rem; bottom: 0; width: 5.5rem; height: 0.6rem; border-radius: 0.3rem; display: flex; justify-content: space-between; z-index: 999; background: #a1a1a1; align-items: center; }
+#app .goods .goods_total .goods_total_ .goods_total_bg_l { position: absolute; left: 0; bottom: 0; width: 70%; height: 150%; z-index: 999; }
+#app .goods .goods_total .goods_total_ .goods_total_bg_r { position: absolute; right: 0; bottom: 0; width: 30%; height: 150%; z-index: 999; }
+#app .goods .goods_total .goods_total_ p { cursor: pointer; }
+#app .goods .goods_total .goods_total_ p:nth-child(1) { width: 0.6rem; height: 0.6rem; cursor: pointer; margin-left: 0.3rem; position: relative; }
+#app .goods .goods_total .goods_total_ p:nth-child(1) img { position: absolute; left: 0; top: -0.2rem; width: 0.8rem; height: 0.8rem; z-index: 8; background: #333; border-radius: 0.4rem; }
+#app .goods .goods_total .goods_total_ p:nth-child(2) { height: 0.6rem; line-height: 0.6rem; flex: 1; text-align: center; font-size: 0.2rem; background: #a1a1a1; }
+#app .goods .goods_total .goods_total_ input { height: 0.6rem; line-height: 0.6rem; width: 30%; text-align: center; font-size: 0.22rem; border-top-right-radius: 0.3rem; border-bottom-right-radius: 0.3rem; border: none; cursor: pointer; }
+#app .goods .goods_total .goods_total_ .goods_total_ys1 { background: #f47433; color: #fff; }
+#app .goods .goods_total .goods_total_ .goods_total_ys2 { background: #a1a1a1; color: #333; }
+#app .ratings { width: 100%; height: 100%; padding: 0.2rem 0; background: #eee; overflow: auto; }
+#app .ratings .ratings_top { width: 100%; margin: 0 auto; height: 1rem; background: #fff; margin-bottom: 0.16rem; }
+#app .ratings .ratings_top ul { width: 96%; height: 0.8rem; padding: 0.1rem 0; display: flex; }
+#app .ratings .ratings_top ul li { height: 0.8rem; width: auto; }
+#app .ratings .ratings_top ul li:nth-child(1), #app .ratings .ratings_top ul li:nth-child(3) { width: 25%; height: 0.8rem; text-align: center; }
+#app .ratings .ratings_top ul li:nth-child(1) p, #app .ratings .ratings_top ul li:nth-child(3) p { width: 100%; height: 0.5rem; line-height: 0.5rem; font-size: 0.26rem; color: #666; }
+#app .ratings .ratings_top ul li:nth-child(1) span, #app .ratings .ratings_top ul li:nth-child(3) span { display: block; height: 0.3rem; line-height: 0.3rem; font-size: 0.18rem; color: #666; }
+#app .ratings .ratings_top ul li:nth-child(2) { flex: 1; height: 0.6rem; padding: 0.1rem 0; border-right: 0.01rem solid #ccc; }
+#app .ratings .ratings_top ul li:nth-child(2) p { height: 0.2rem; line-height: 0.2rem; padding: 0.05rem 0; width: 100%; }
+#app .ratings .ratings_top ul li:nth-child(2) p i { float: left; height: 0.2rem; width: auto; position: relative; z-index: 9; margin-right: 0.05rem; font-style: normal; font-size: 0.16rem; }
+#app .ratings .ratings_top ul li:nth-child(2) p i img { height: 100%; width: auto; }
+#app .ratings .ratings_top ul li:nth-child(2) p i:nth-child(2) .ratings_top_star { display: block; position: absolute; left: 0; top: 0; width: 100%; height: 0.2rem; content: ''; z-index: -1; }
+#app .ratings .ratings_top ul li:nth-child(2) p i:nth-child(2) .ratings_top_star div { background: #f90; height: 0.2rem; }
+#app .ratings .ratings_top ul li:nth-child(2) p span { float: right; height: 100%; width: 0.8rem; font-size: 0.16rem; color: #f00; }
+#app .ratings .ratings_nr { width: 94%; margin: 0 auto; height: auto; padding: 0.3rem 3%; background: #fff; }
+#app .ratings .ratings_nr ul { width: 100%; height: auto; }
+#app .ratings .ratings_nr ul li { display: flex; width: 100%; height: auto; justify-content: space-between; border-bottom: 0.01rem solid #eee; padding: 0.2rem 0; }
+#app .ratings .ratings_nr ul li .ratings_l { width: 15%; height: auto; }
+#app .ratings .ratings_nr ul li .ratings_l img { width: 80%; height: auto; border-radius: 100%; background: #eee; }
+#app .ratings .ratings_nr ul li .ratings_r { height: auto; width: 85%; clear: both; }
+#app .ratings .ratings_nr ul li .ratings_r span { float: right; width: 20%; height: 0.3rem; line-height: 0.3rem; font-size: 0.14rem; color: #666; }
+#app .ratings .ratings_nr ul li .ratings_r p { display: block; height: auto; width: 80%; height: 0.3rem; line-height: 0.3rem; }
+#app .ratings .ratings_nr ul li .ratings_r p:nth-child(2) { font-size: 0.22rem; color: #111; font-weight: 500; }
+#app .ratings .ratings_nr ul li .ratings_r p:nth-child(3) { height: 0.4rem; line-height: 0.3rem; font-size: 0.22rem; color: #111; }
+#app .ratings .ratings_nr ul li .ratings_r p:nth-child(3) i { display: inline-block; height: 0.3rem; width: 0.3rem; padding-top: 0.05rem; }
+#app .ratings .ratings_nr ul li .ratings_r .ratings_nr_nr { width: 96%; clear: both; height: auto; margin: 0 auto; font-size: 0.18rem; color: #333; }
+#app .seller { width: 100%; height: 100%; padding: 0.2rem 0; background: #eee; overflow: auto; }
+#app .seller .zz_show { position: fixed; left: 50%; top: 0; height: 100%; width: 0.01rem; z-index: 999; }
+#app .seller .zz_show .zz_show_ { position: absolute; left: -3.2rem; top: 0; width: 6.4rem; height: 100%; }
+#app .seller .zz_show .zz_show_ .zz_show_bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #000; opacity: 0.93; }
+#app .seller .zz_show .zz_show_ dl { width: 90%; height: 100%; margin: 0 auto; padding: 0 1%; display: flex; flex-wrap: wrap; justify-content: space-between; overflow: auto; position: relative; }
+#app .seller .zz_show .zz_show_ dl dt { width: 100%; height: 0.5rem; line-height: 0.5rem; color: #eee; margin-bottom: 0.1rem; font-size: 0.22rem; }
+#app .seller .zz_show .zz_show_ dl dt:after { display: block; width: 0.5rem; height: 0.5rem; content: '×'; font-size: 0.35rem; line-height: 0.45rem; text-align: center; float: right; }
+#app .seller .zz_show .zz_show_ dl dd { width: 48%; height: 3rem; background: #eee; border-radius: 0.1rem; margin-bottom: 0.2rem; }
+#app .seller > ul { width: 100%; height: auto; }
+#app .seller > ul li { width: 100%; height: 0.5rem; padding: 0.16rem 0; background: #fff; margin-bottom: 0.2rem; border-bottom: none; font-size: 0.2rem; line-height: 0.5rem; display: flex; }
+#app .seller > ul li:nth-child(odd) { margin-bottom: 0; border-bottom: 0.01rem solid #eee; }
+#app .seller > ul li:nth-last-child(1) { margin-bottom: 0; }
+#app .seller > ul li i { display: block; width: 0.4rem; height: 0.4rem; margin: 0.05rem; margin-left: 0.1rem; }
+#app .seller > ul li p { flex: 1; color: #222; }
+#app .seller > ul li a { display: block; width: 0.5rem; height: 0.5rem; margin: 0 0.2rem; cursor: pointer; }
+#app .seller > ul li:nth-child(1) p { border-right: 0.01rem solid #eee; }
+#app .seller > ul li:nth-child(2) { cursor: pointer; }
+#app .seller > ul li:nth-child(2) p { border-right: 0.01rem solid #eee; }
+#app .seller > ul li:nth-child(2) p:after { display: block; float: right; height: 0.5rem; width: 0.5rem; content: '〉'; text-align: center; line-height: 0.5rem; font-size: 0.16rem; color: #666; }
 #app footer { height: 1rem; width: 100%; text-align: center; line-height: 1rem; font-size: 0.16rem; }
 
 @media only screen and (max-width: 640px) { #app { width: 100%; } }

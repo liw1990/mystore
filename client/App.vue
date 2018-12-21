@@ -11,8 +11,11 @@
     		<li>
     			<router-link to="/seller">卖家</router-link>
     		</li>
-    	</ul>
-    	<router-view></router-view>   	
+    </ul>
+    <div class="content" :style="{ height: clientHeight + 'px' }">
+    	<router-view></router-view> 
+    </div>
+      	
     <v-footer></v-footer>
   </div>
 </template>
@@ -25,12 +28,33 @@
 	export default {
 		data(){
 			return{
+				clientHeight:'',
 				seller:[],
 			}
-	},
-	components:{
+		},
+		components:{
 			"v-header": header,
 			"v-footer": footer
-		} 
+		},
+		mounted(){
+			// 获取浏览器可视区域高度
+			this.clientHeight =   `${document.documentElement.clientHeight}` - 380         //document.body.clientWidth;
+			//console.log(self.clientHeight);
+			window.onresize = function temp() {
+				this.clientHeight = `${document.documentElement.clientHeight}` - 380;
+			};
+		},
+		watch: {
+			// 如果 `clientHeight` 发生改变，这个函数就会运行
+			clientHeight: function () {
+				this.changeFixed(this.clientHeight)
+			}
+		},
+		methods: {
+			changeFixed(clientHeight){
+				this.clientHeight=clientHeight
+			}
+		}
 	}
+	
 </script>
