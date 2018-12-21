@@ -74,24 +74,24 @@ a { text-decoration: none; }
 #app .goods ul { width: 30%; height: 100%; overflow: auto; padding-bottom: 3rem; }
 #app .goods ul li { height: 0.7rem; width: 100%; line-height: 0.7rem; font-size: 0.2rem; }
 #app .goods ul li p { width: 80%; margin: 0 auto; height: auto; line-break: 0.25rem; vertical-align: middle; border-bottom: 0.01rem solid #eee; }
-#app .goods .goods_list { flex: 1; height: 100%; overflow: auto; }
-#app .goods .goods_list dl { width: 100%; height: auto; background: #fff; }
-#app .goods .goods_list dl dt { height: 0.4rem; line-height: 0.4rem; font-size: 0.16rem; background: #eee; clear: both; text-indent: 0.16rem; }
-#app .goods .goods_list dl dd { font-size: 0.16rem; height: auto; width: 90%; padding: 0.16rem 0; margin: 0 auto; clear: both; display: flex; justify-content: space-around; border-bottom: 0.01rem solid #eee; }
-#app .goods .goods_list dl dd .cp_img { height: 1rem; width: 1rem; background: #999; border-radius: 0.08rem; }
-#app .goods .goods_list dl dd .cp_img img { width: 100%; height: 100%; }
-#app .goods .goods_list dl dd .cp_ms { flex: 1; padding-left: 0.16rem; position: relative; }
-#app .goods .goods_list dl dd .cp_ms p { height: 0.3rem; line-height: 0.3rem; font-size: 0.2rem; color: #111; }
-#app .goods .goods_list dl dd .cp_ms span { display: block; height: 0.25rem; line-height: 0.25rem; font-size: 0.14rem; color: #999; }
-#app .goods .goods_list dl dd .cp_ms span i { font-style: normal; }
-#app .goods .goods_list dl dd .cp_ms span i:nth-child(1) { color: #f00; font-size: 0.22rem; font-weight: 600; }
-#app .goods .goods_list dl dd .cp_ms span i:nth-child(2) { text-decoration: line-through; }
-#app .goods .goods_list dl dd .cp_ms .jiajian { position: absolute; right: 0.1rem; bottom: -0.05rem; width: auto; height: 0.3rem; line-height: 0.3rem; text-align: center; display: flex; justify-content: space-between; }
-#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_ { display: inline-flex; width: 0.6rem; justify-content: space-between; }
-#app .goods .goods_list dl dd .cp_ms .jiajian label:nth-child(1), #app .goods .goods_list dl dd .cp_ms .jiajian label:nth-child(2) { display: inline-block; height: 0.2rem; width: 0.2rem; border-radius: 100%; border: 0.01rem solid #f47433; line-height: 0.16rem; font-size: 0.2rem; cursor: pointer; }
-#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_jian { background: none; color: #f47433; }
-#app .goods .goods_list dl dd .cp_ms .jiajian .jiajian_jia { background: #f47433; color: #fff; }
-#app .goods .goods_list dl dd .cp_ms .jiajian p { display: inline-block; width: 0.3rem; height: 0.3rem; line-height: 0.22rem; font-size: 0.16rem; margin: 0 0.03rem; color: #666; text-align: center; }
+#app .goods .goodsList { flex: 1; height: 100%; overflow: auto; }
+#app .goods .goodsList dl { width: 100%; height: auto; background: #fff; }
+#app .goods .goodsList dl dt { height: 0.4rem; line-height: 0.4rem; font-size: 0.16rem; background: #eee; clear: both; text-indent: 0.16rem; }
+#app .goods .goodsList dl dd { font-size: 0.16rem; height: auto; width: 90%; padding: 0.16rem 0; margin: 0 auto; clear: both; display: flex; justify-content: space-around; border-bottom: 0.01rem solid #eee; }
+#app .goods .goodsList dl dd .cp_img { height: 1rem; width: 1rem; background: #999; border-radius: 0.08rem; }
+#app .goods .goodsList dl dd .cp_img img { width: 100%; height: 100%; }
+#app .goods .goodsList dl dd .cp_ms { flex: 1; padding-left: 0.16rem; position: relative; }
+#app .goods .goodsList dl dd .cp_ms p { height: 0.3rem; line-height: 0.3rem; font-size: 0.2rem; color: #111; }
+#app .goods .goodsList dl dd .cp_ms span { display: block; height: 0.25rem; line-height: 0.25rem; font-size: 0.14rem; color: #999; }
+#app .goods .goodsList dl dd .cp_ms span i { font-style: normal; }
+#app .goods .goodsList dl dd .cp_ms span i:nth-child(1) { color: #f00; font-size: 0.22rem; font-weight: 600; }
+#app .goods .goodsList dl dd .cp_ms span i:nth-child(2) { text-decoration: line-through; }
+#app .goods .goodsList dl dd .cp_ms .jiajian { position: absolute; right: 0.1rem; bottom: -0.05rem; width: auto; height: 0.3rem; line-height: 0.3rem; text-align: center; display: flex; justify-content: space-between; }
+#app .goods .goodsList dl dd .cp_ms .jiajian .jiajian_ { display: inline-flex; width: 0.6rem; justify-content: space-between; }
+#app .goods .goodsList dl dd .cp_ms .jiajian label:nth-child(1), #app .goods .goodsList dl dd .cp_ms .jiajian label:nth-child(2) { display: inline-block; height: 0.2rem; width: 0.2rem; border-radius: 100%; border: 0.01rem solid #f47433; line-height: 0.16rem; font-size: 0.2rem; cursor: pointer; }
+#app .goods .goodsList dl dd .cp_ms .jiajian .jiajian_jian { background: none; color: #f47433; }
+#app .goods .goodsList dl dd .cp_ms .jiajian .jiajian_jia { background: #f47433; color: #fff; }
+#app .goods .goodsList dl dd .cp_ms .jiajian p { display: inline-block; width: 0.3rem; height: 0.3rem; line-height: 0.22rem; font-size: 0.16rem; margin: 0 0.03rem; color: #666; text-align: center; }
 #app .goods .goods_total { position: fixed; left: 50%; bottom: 0; width: 0.02rem; height: 0.02rem; z-index: 991; }
 #app .goods .goods_total dl { position: absolute; left: -3.2rem; bottom: 0; padding-bottom: 0.3rem; width: 6.4rem; height: auto; z-index: 999; background: #fff; border-top-left-radius: 0.2rem; border-top-right-radius: 0.2rem; overflow: hidden; }
 #app .goods .goods_total dl div { padding-bottom: 0.6rem; }

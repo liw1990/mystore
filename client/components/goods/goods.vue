@@ -1,12 +1,12 @@
 <template>
 	<div class="goods" ref="goods">
 		<transition name="fade">
-			<div v-if="total_cp_list_show" class="goods_bg" @click="total_cp_list_hide()"></div>
+			<div v-if="total_cpList_show" class="goodsBg" @click="total_cpList_hide()"></div>
 		</transition>
-		<ul class="scroller scroll_by">
+		<ul class="scroller scrollBy">
 			<li v-for="item in goods"><p>{{item.title}}</p></li>
 		</ul>
-		<div class="goods_list scroll_by">
+		<div class="goodsList scrollBy">
 			<dl v-for="(item,index_) in goods">
 				<dt>{{item.title}}</dt>
 				<dd v-for="(cp,index) in item.cplist" @click="cp_show_detail(index_,index)">
@@ -34,12 +34,12 @@
 		<transition name="fade">
 			<div class="goods_cp_show" v-if="goods_cp_detail">
 				<div class="goods_cp_show_">
-					<div class="goods_cp_show_bg"></div>
+					<div class="goods_cp_showBg"></div>
 					<div class="goods_cp_show_nr">
 						<div @click="goods_cp_hide(index_,index)" class="goods_cp_hide"><p>〈</p></div>
-						<div class="goods_cp_detail scroll_by">
+						<div class="goods_cp_detail scrollBy">
 							<div class="goods_cp_detail_img"><img :src="goods_.cp_img" /></div>
-							<div class="goods_cp_detail_bt">{{goods_.title}}</div>
+							<div class="goods_cp_detailBt">{{goods_.title}}</div>
 							<div class="goods_cp_detail_num"><span>月销量{{goods_.num}}</span><span>好评率{{goods_.rate}}</span></div>
 							<div class="goods_cp_detail_price">￥{{goods_.price}}</div>
 						</div>
@@ -49,10 +49,10 @@
 		</transition>
 		<div class="goods_total">
 			<dl>
-				<dt :class="{'goods_total_dl_dt_ys1':!total_cp_list_show,'goods_total_dl_dt_ys2':total_cp_list_show}"><span v-for="item in header.manjian">满{{item.price}}减{{item.discount}}</span></dt>
+				<dt :class="{'goods_total_dl_dt_ys1':!total_cpList_show,'goods_total_dl_dt_ys2':total_cpList_show}"><span v-for="item in manjian">满{{item.price}}减{{item.discount}}</span></dt>
 				<transition name="fade">
-					<div v-if="total_cp_list_show">
-						<dd v-for="(item,index) in goods_buy" v-if="item.count>0">
+					<div v-if="total_cpList_show">
+						<dd v-for="(item,index) in goodsBuy" v-if="item.count>0">
 							<p>{{item.title}}</p>
 							<p>￥{{item.count * item.price}}</p>
 							<p><label @click.stop="count_jian_(index)">-</label><span>{{item.count}}</span><label @click.stop="count_jia_(index)">+</label></p>
@@ -61,28 +61,24 @@
 				</transition>
 			</dl>
 			<div class="goods_total_">
-				<p @click="total_cp_list">
+				<p @click="total_cpList">
 					<transition name="fade">
-						<img v-if="!total_cp_list_dianji" :src="goods_logo" />
+						<img v-if="!total_cpList_dianji" :src="goodsLogo" />
 					</transition>
 					<transition name="fade">
-						<img v-if="total_cp_list_dianji" :src="goods_logo_" />
+						<img v-if="total_cpList_dianji" :src="goodsLogo_" />
 					</transition>
 				</p>
-				<p @click="total_cp_list">
+				<p @click="total_cpList">
 					<span>共{{totalCount}}件商品 总价：</span>
 					<span>{{totalPrice}}</span>
 				</p>
-				<input type="button" :value="header.settlement_btn"
-					:class="{'goods_total_ys1':total_cp_list_dianji_,'goods_total_ys1':!total_cp_list_dianji_}" 
+				<input type="button" :value="settlementBtn"
+					:class="{'goods_total_ys1':total_cpList_dianji_,'goods_total_ys1':!total_cpList_dianji_}" 
 					@click="Settlement()"
 				/>
-				<transition name="fade">
-					<div class="goods_total_bg_l" v-if="total_cp_list_dianji"></div>
-				</transition>
-				<transition name="fade">
-					<div class="goods_total_bg_r" v-if="total_cp_list_dianji_"></div>
-				</transition>
+				<div class="goods_total_bg_l" name="fade" v-if="total_cpList_dianji"></div>
+				<div class="goods_total_bg_r" name="fade" v-if="total_cpList_dianji_"></div>
 			</div>
 			
 		</div>
@@ -93,20 +89,26 @@
 	export default {
 		data(){
 			return{
-				header:{
-					"manjian":[
-							{'price':20,'discount':5},{'price':30,'discount':10},{'price':45,'discount':15}
-						],
-					"mini":"最低",
-					"peisong":"起送",
-					"mini_peisong_price":20,
-					"mimi_peisong_":"还差",
-					"yuan":"元",
-					"settlement_btn":"",
-					"settlement":"去结算",
-					"jiesuan_price":0,
-					"jiesuan_zhehou_price":0
-				},
+				manjian:[
+					{'price':20,'discount':5},{'price':30,'discount':10},{'price':45,'discount':15}
+				],
+				mini:"最低",
+				delivery:"起送",
+				miniDeliveryPrice:20,
+				mimiDelivery:"还差",
+				yuan:"元",
+				settlementBtn:"",
+				settlement:"去结算",
+				jiesuan_price:0,
+				jiesuan_zhehou_price:0,
+				goodsLogo:'./static/img/logo.png',
+				goodsLogo_:'./static/img/logo_.png',
+				goodsBuy:[],
+				total_cpList_show:false,
+				total_cpList_dianji:true,
+				total_cpList_dianji_:true,
+				goods_cp_detail:false,
+				clientHeight:'',
 				goods:[
 					{'title':'热销榜','cplist':[
 						{'id':1,'title':'热销品一','price':1,'old_price':45,'cp_img':'./static/img/logo.png','description':'简述','num':699,'count':0,'rate':'100%','complete':false,'complete_':true},
@@ -124,71 +126,62 @@
 						{'id':11,'title':'特色二','price':2,'old_price':45,'cp_img':'./static/img/logo.png','description':'简述','num':699,'count':0,'rate':'100%','complete':false,'complete_':true},
 					]},
 				],
-				goods_logo:'./static/img/logo.png',
-				goods_logo_:'./static/img/logo_.png',
-				goods_:{},
-				goods_buy:[],
-				total_cp_list_show:false,
-				total_cp_list_dianji:true,
-				total_cp_list_dianji_:true,
-				goods_cp_detail:false,
-				clientHeight:'',
 			}	
 		},
 		computed:{
 			totalCount(){
 				var totalCount=0;
-				for(let i=0;i<this.goods_buy.length;i++){
-					totalCount += this.goods_buy[i].count;
+				for(let i=0;i<this.goodsBuy.length;i++){
+					totalCount += this.goodsBuy[i].count;
 				}
 				if(totalCount==0){
-					//console.log(this.total_cp_list_dianji)
-					this.total_cp_list_dianji=true;
-					this.total_cp_list_show=false;	
+					//console.log(this.total_cpList_dianji)
+					this.total_cpList_dianji=true;
+					this.total_cpList_show=false;	
 					
 				}
 				return totalCount;
 			},
 			totalPrice(){
 				var totalPrice=0;
-				for(let i=0;i<this.goods_buy.length;i++){
-					totalPrice += this.goods_buy[i].price * this.goods_buy[i].count;
+				for(let i=0;i<this.goodsBuy.length;i++){
+					totalPrice += this.goodsBuy[i].price * this.goodsBuy[i].count;
 				}
-				if(totalPrice<this.header.mini_peisong_price){
-					//this.total_cp_list_dianji=true;
-					this.total_cp_list_dianji_=true
+				if(totalPrice<this.miniDeliveryPrice){
+					//this.total_cpList_dianji=true;
+					this.total_cpList_dianji_=true
 					if(totalPrice==0){
-						this.header.settlement_btn=this.header.mini+this.header.mini_peisong_price+this.header.yuan+this.header.peisong;
-						//console.log(this.header.settlement_btn)
+						this.settlementBtn=this.mini+this.miniDeliveryPrice+this.yuan+this.delivery;
+						//console.log(this.settlementBtn)
 					}else{
-						this.header.settlement_btn=this.header.mimi_peisong_+(this.header.mini_peisong_price-totalPrice)+this.header.yuan+this.header.peisong;
+						this.settlementBtn=this.mimiDelivery+(this.miniDeliveryPrice-totalPrice)+this.yuan+this.delivery;
 					}			
 				}else{
-					this.header.settlement_btn=this.header.settlement;
-					this.total_cp_list_dianji_=false
+					this.settlementBtn=this.settlement;
+					this.total_cpList_dianji_=false
 				}
-				this.header.jiesuan_price=totalPrice
+				this.jiesuan_price=totalPrice
 				return totalPrice;
 			}
 		},
 		methods: {
 			count_jia(index_, index){
 				this.goods[index_].cplist[index].complete=true;
-				this.total_cp_list_dianji=false;
+				this.total_cpList_dianji=false;
 				this.goods[index_].cplist[index].count++;
 			
-				let length=this.goods_buy.length;
+				let length=this.goodsBuy.length;
 				var flag = 0;
 				for(let i=0; i<length; i++){
-					if(this.goods[index_].cplist[index].id===this.goods_buy[i].id){
+					if(this.goods[index_].cplist[index].id===this.goodsBuy[i].id){
 						flag = 1;
-						this.goods_buy[i].count=this.goods[index_].cplist[index].count;
+						this.goodsBuy[i].count=this.goods[index_].cplist[index].count;
 					}					
 				}
 				if ( flag==0 ) {
-					this.goods_buy.push(this.goods[index_].cplist[index]);
+					this.goodsBuy.push(this.goods[index_].cplist[index]);
 				}
-				//console.log(this.goods_buy)
+				//console.log(this.goodsBuy)
 				//console.log(length)
 			},
 			count_jian(index_, index){
@@ -199,35 +192,35 @@
 				}
 			},
 			count_jia_(index){
-				this.goods_buy[index].count++;
+				this.goodsBuy[index].count++;
 			},
 			count_jian_(index){
-				if(this.goods_buy[index].count<=1){
-					this.goods_buy[index].count=0;
-					this.goods_buy.splice(index,1)
+				if(this.goodsBuy[index].count<=1){
+					this.goodsBuy[index].count=0;
+					this.goodsBuy.splice(index,1)
 				}else{
-					this.goods_buy[index].count--;
+					this.goodsBuy[index].count--;
 				}	
 			},
-			total_cp_list(){
-				this.total_cp_list_show=!this.total_cp_list_show;
-				//console.log(this.total_cp_list_show)
+			total_cpList(){
+				this.total_cpList_show=!this.total_cpList_show;
+				//console.log(this.total_cpList_show)
 			},
-			total_cp_list_hide(){
-				this.total_cp_list_show=false
+			total_cpList_hide(){
+				this.total_cpList_show=false
 			},
 			Settlement(){
 				console.log("jiesuan")
-				console.log(this.header.jiesuan_price)
+				console.log(this.jiesuan_price)
 				
-				for(let i=this.header.manjian.length-1; i>=0; i--){
+				for(let i=this.manjian.length-1; i>=0; i--){
 					console.log("manjian")
-					console.log(this.header.manjian[i].price)
-					if(this.header.jiesuan_price>=this.header.manjian[i].price){
-						this.header.jiesuan_zhehou_price=this.header.jiesuan_price-this.header.manjian[i].discount;
-						console.log(this.header.jiesuan_zhehou_price)
-						alert("需付"+this.header.jiesuan_zhehou_price+this.header.yuan)
-						return this.header.jiesuan_zhehou_price;
+					console.log(this.manjian[i].price)
+					if(this.jiesuan_price>=this.manjian[i].price){
+						this.jiesuan_zhehou_price=this.jiesuan_price-this.manjian[i].discount;
+						console.log(this.jiesuan_zhehou_price)
+						alert("需付"+this.jiesuan_zhehou_price+this.yuan)
+						return this.jiesuan_zhehou_price;
 					}					
 				}
 			},

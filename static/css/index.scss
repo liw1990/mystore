@@ -197,7 +197,7 @@ $c_0:#000;$c_1:#111;$c_2:#222;$c_3:#333;$c_6:#666;$c_9:#999;$c_c:#ccc;$c_e:#eee;
                 }
             }
         }
-        .goods_list{
+        .goodsList{
             flex: 1; height: 100%; overflow: auto;
             dl{ 
                 width: 100%; height: auto; background: $c_f;
@@ -310,6 +310,7 @@ $c_0:#000;$c_1:#111;$c_2:#222;$c_3:#333;$c_6:#666;$c_9:#999;$c_c:#ccc;$c_e:#eee;
                     img{
                        position: absolute; left: 0; top: -$_20; width: $_80; height: $_80; z-index: 8; background: #333;
                        border-radius: $_40;
+//                     border-top-right-radius: $_40; border-top-left-radius: $_40;
                     }
                 }
                 p:nth-child(2){
