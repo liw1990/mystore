@@ -21,8 +21,10 @@ const routes = [
 ]
 
 const router = new VueRouter({
+	mode:"hash",
 	linkExactActiveClass:"",
   routes // (缩写) 相当于 routes: routes
+  
 })
 
 
